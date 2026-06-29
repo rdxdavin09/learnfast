@@ -54,6 +54,8 @@ button{
 </button>
 </div>
 <script>
+    const cart = document.getElementById("cartItems");
+const total = document.getElementById("total");
 const cartData = JSON.parse(localStorage.getItem("cart")) || [];
 
 let totalPrice = 0;
@@ -68,16 +70,7 @@ cartData.forEach(item => {
 
 total.textContent = totalPrice;
 
-const cart = document.getElementById("cartItems");
-const total = document.getElementById("total");
 
-if (book) {
-    cart.innerHTML = book + " - ₹199";
-    total.textContent = "199";
-} else {
-    cart.innerHTML = "No books added yet.";
-    total.textContent = "0";
-}
 </script>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
