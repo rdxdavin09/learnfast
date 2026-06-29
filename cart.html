@@ -49,12 +49,9 @@ button{
 <h2>Total: ₹<span id="total">0</span></h2>
 
 <form>
-<script
-src="https://checkout.razorpay.com/v1/payment-button.js"
-data-payment_button_id="pl_T7OrvxCcunBuZf"
-async>
-</script>
-</form>
+<button id="payBtn">
+    Proceed To Payment
+</button>
 </div>
 <script>
 const book = localStorage.getItem("cart");
