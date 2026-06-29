@@ -43,20 +43,7 @@ button{
 <h1>🛒 Your Cart</h1>
 
 <div id="cartItems">
-<script>
-const book = localStorage.getItem("cart");
 
-const cart = document.getElementById("cartItems");
-const total = document.getElementById("total");
-
-if(book){
-    cart.innerHTML = book + " - ₹199";
-    total.innerHTML = "199";
-}else{
-    cart.innerHTML = "No books added yet.";
-    total.innerHTML = "0";
-}
-</script>
 </div>
 
 <h2>Total: ₹<span id="total">0</span></h2>
@@ -66,6 +53,19 @@ Proceed To Payment
 </button>
 
 </div>
+<script>
+const book = localStorage.getItem("cart");
 
+const cart = document.getElementById("cartItems");
+const total = document.getElementById("total");
+
+if (book) {
+    cart.innerHTML = book + " - ₹199";
+    total.textContent = "199";
+} else {
+    cart.innerHTML = "No books added yet.";
+    total.textContent = "0";
+}
+</script>
 </body>
 </html>
