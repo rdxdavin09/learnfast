@@ -71,8 +71,8 @@ if (book) {
 
 </script>
     <script>
-document.getElementById("payBtn").onclick = function () {
-
+document.getElementById("payBtn").onclick = function (e) {
+    e.preventDefault();
     var options = {
         key: "rzp_test_T7SbSLaYOwMvys",
         amount: 19900,
