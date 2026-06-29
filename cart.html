@@ -54,7 +54,19 @@ button{
 </button>
 </div>
 <script>
-const book = localStorage.getItem("cart");
+const cartData = JSON.parse(localStorage.getItem("cart")) || [];
+
+let totalPrice = 0;
+cart.innerHTML = "";
+
+cartData.forEach(item => {
+    cart.innerHTML += `
+        <p>${item.name} - ₹${item.price}</p>
+    `;
+    totalPrice += item.price;
+});
+
+total.textContent = totalPrice;
 
 const cart = document.getElementById("cartItems");
 const total = document.getElementById("total");
