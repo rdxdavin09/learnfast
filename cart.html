@@ -43,7 +43,16 @@ button{
 <h1>🛒 Your Cart</h1>
 
 <div id="cartItems">
-No books added yet.
+<script>
+const book = localStorage.getItem("cart");
+
+if(book){
+    document.write(book + " - ₹199");
+    document.getElementById("total").innerHTML = "199";
+}else{
+    document.write("No books added yet.");
+}
+</script>
 </div>
 
 <h2>Total: ₹<span id="total">0</span></h2>
