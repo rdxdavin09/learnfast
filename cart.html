@@ -68,10 +68,27 @@ if (book) {
 }
 </script>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+</script>
     <script>
 document.getElementById("payBtn").onclick = function () {
-    alert("Button Click Ho Gaya");
-}
+
+    var options = {
+        key: "rzp_test_T7SbSLaYOwMvys",
+        amount: 19900,
+        currency: "INR",
+        name: "LearnFast",
+        description: "eBook Purchase",
+
+        handler: function (response) {
+            alert("Payment Successful!\nPayment ID: " + response.razorpay_payment_id);
+        }
+    };
+
+    var rzp = new Razorpay(options);
+    rzp.open();
+
+};
 </script>
 </body>
 </html>
