@@ -173,6 +173,15 @@ BUY NOW
 <br><br>
 
 </div>
-
+<script>
+document.addEventListener("click", function(e){
+  if(e.target && e.target.classList.contains("buy")){
+    const btn = document.querySelector(".razorpay-payment-button");
+    if(btn){
+      btn.click();
+    }
+  }
+});
+</script>
 </body>
 </html>
