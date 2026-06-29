@@ -1,66 +1,86 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LearnFast</title>
 
 <style>
-body{
+
+*{
 margin:0;
-background:#111;
-font-family:Arial;
-color:white;
-text-align:center;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
-h1{
+body{
+background:#0d0d0d;
+color:white;
+}
+
+header{
+text-align:center;
+padding:25px;
+background:#000;
+border-bottom:2px solid #FFD700;
+}
+
+header h1{
 color:#FFD700;
-margin-top:30px;
+font-size:42px;
+}
+
+header p{
+color:#ccc;
+margin-top:10px;
+font-size:18px;
 }
 
 .container{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:20px;
+width:95%;
+max-width:1200px;
+margin:auto;
 padding:30px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
 }
 
 .book{
-background:#222;
-padding:15px;
+background:#1b1b1b;
+padding:20px;
 border-radius:15px;
-width:220px;
+text-align:center;
+box-shadow:0 0 15px rgba(255,215,0,.15);
 }
 
 .book img{
 width:100%;
-height:320px;
-object-fit:cover;
-border-radius:10px;
-}
-
-button{
-background:#FFD700;
-border:none;
-padding:12px 25px;
-font-size:18px;
-border-radius:8px;
-cursor:pointer;
-margin-top:10px;
-}
-
-#cart{
-background:#000;
-padding:20px;
-margin:20px;
-font-size:22px;
-}
-
-.review{
-background:#222;
-margin:20px;
-padding:20px;
 border-radius:12px;
+}
+
+.old{
+text-decoration:line-through;
+color:#999;
+font-size:24px;
+}
+
+.new{
+font-size:36px;
+color:#00ff66;
+font-weight:bold;
+}
+
+.details{
+display:inline-block;
+margin-top:15px;
+padding:12px 25px;
+background:#FFD700;
+color:#000;
+text-decoration:none;
+border-radius:8px;
+font-weight:bold;
 }
 </style>
 
@@ -68,96 +88,121 @@ border-radius:12px;
 
 <body>
 
-<h1>LearnFast Psychology Store</h1>
+<header>
 
-<h3>1000+ Students Enrolled ⭐⭐⭐⭐⭐</h3>
+<h1>LearnFast</h1>
 
-<div id="cart">
-Items : <span id="items">0</span><br><br>
-Total : ₹<span id="price">0</span>
-</div>
+<p>Premium Psychology eBooks</p>
+
+</header>
 
 <div class="container">
+  <div class="book">
 
-<div class="book">
-<a href="details.html">
 <img src="Attraction psychology">
+
+<h2 style="margin-top:15px;">Attraction Psychology</h2>
+
+<div class="old">₹499</div>
+
+<div class="new">₹199</div>
+
+<p style="margin:15px 0;color:#ccc;">
+Learn confidence, attraction psychology, body language, texting, communication and relationship skills.
+</p>
+
+<a class="details" href="details.html">
+View Details
 </a>
-<h2>Attraction Psychology</h2>
-<h3>₹199</h3>
-<a href="details.html">
-<button>View Details</button>
-</a>
-  <form><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_T7OrvxCcunBuZf" async> </script> </form>
+
 </div>
 
 <div class="book">
-<a href="law.html">
+
 <img src="Law of Attraction">
+
+<h2 style="margin-top:15px;">Law Of Attraction</h2>
+
+<div class="old">₹499</div>
+
+<div class="new">₹199</div>
+
+<p style="margin:15px 0;color:#ccc;">
+Discover practical mindset techniques and positive habit building.
+</p>
+
+<a class="details" href="law.html">
+View Details
 </a>
 
-<h2>Law Of Attraction</h2>
-
-<h3>₹199</h3>
-
-
+</div>
 
 <div class="book">
+
 <img src="Flirty Text">
-<h2>Flirty Texts</h2>
-<h3>₹199</h3>
-<button onclick="add()">Add To Cart</button>
-</div>
 
+<h2 style="margin-top:15px;">99+ Flirty Texts</h2>
+
+<div class="old">₹499</div>
+
+<div class="new">₹199</div>
+
+<p style="margin:15px 0;color:#ccc;">
+Ready-to-use text ideas with respectful communication examples.
+</p>
+
+<a class="details" href="flirty.html">
+View Details
+</a>
+
+</div>
 <div class="book">
+
 <img src="Men ARE FROM Mars">
-<h2>Men From Mars</h2>
-<h3>₹199</h3>
-<button onclick="add()">Add To Cart</button>
+
+<h2 style="margin-top:15px;">Men Are From Mars</h2>
+
+<div class="old">₹499</div>
+
+<div class="new">₹199</div>
+
+<p style="margin:15px 0;color:#ccc;">
+Understand communication differences and build healthier relationships.
+</p>
+
+<a class="details" href="mars.html">
+View Details
+</a>
+
 </div>
 
 <div class="book">
+
 <img src="Female Psychology">
-<h2>Female Psychology</h2>
-<h3>₹199</h3>
-<button onclick="add()">Add To Cart</button>
-</div>
+
+<h2 style="margin-top:15px;">Female Psychology</h2>
+
+<div class="old">₹499</div>
+
+<div class="new">₹199</div>
+
+<p style="margin:15px 0;color:#ccc;">
+Understand female psychology, communication, confidence and attraction.
+</p>
+
+<a class="details" href="female.html">
+View Details
+</a>
 
 </div>
 
-<button style="font-size:25px">Buy Now</button>
-
-<div class="review">
-⭐⭐⭐⭐⭐<br><br>
-Amazing Course ❤️
 </div>
 
-<div class="review">
-⭐⭐⭐⭐⭐<br><br>
-Worth Every Rupee.
-</div>
-
-<div class="review">
-⭐⭐⭐⭐⭐<br><br>
-Best Psychology Books.
-</div>
-
-<script>
-
-let items=0;
-let total=0;
-
-function add(){
-
-items++;
-total+=199;
-
-document.getElementById("items").innerHTML=items;
-document.getElementById("price").innerHTML=total;
-
-}
-
-</script>
+<footer style="text-align:center;padding:40px;color:#888;">
+<h2 style="color:#FFD700;">🔥 Limited Time Offer</h2>
+<p>All eBooks at only <span style="color:#00ff66;font-size:26px;">₹199</span> each</p>
+<p>© 2026 LearnFast. All Rights Reserved.</p>
+</footer>
 
 </body>
 </html>
