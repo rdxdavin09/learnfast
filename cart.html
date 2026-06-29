@@ -46,11 +46,15 @@ button{
 <script>
 const book = localStorage.getItem("cart");
 
+const cart = document.getElementById("cartItems");
+const total = document.getElementById("total");
+
 if(book){
-    document.write(book + " - ₹199");
-    document.getElementById("total").innerHTML = "199";
+    cart.innerHTML = book + " - ₹199";
+    total.innerHTML = "199";
 }else{
-    document.write("No books added yet.");
+    cart.innerHTML = "No books added yet.";
+    total.innerHTML = "0";
 }
 </script>
 </div>
