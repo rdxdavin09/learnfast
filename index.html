@@ -278,9 +278,6 @@ View Details
 </footer>
 <script>
 function addToCart(name, price) {
- 
-
-    
 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -295,18 +292,25 @@ function addToCart(name, price) {
 
         localStorage.setItem("cart", JSON.stringify(cart));
 
-     window.location.href = "cart.html";
+        window.location.href = "cart.html";
+
+    } else {
+
+        alert("Ye book pehle se cart me hai.");
 
     }
-  function removeFromCart(name) {
-    let cart =
-      JSON.parse(localStorage.getItem("cart")) || [];
+}
+
+function removeFromCart(name) {
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
     cart = cart.filter(item => item.name !== name);
 
     localStorage.setItem("cart", JSON.stringify(cart));
 
     alert("Book Removed!");
+
     location.reload();
 }
 }
