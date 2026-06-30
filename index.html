@@ -299,7 +299,8 @@ function addToCart(name, price) {
 
     }
   function removeFromCart(name) {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let cart =
+      JSON.parse(localStorage.getItem("cart")) || [];
 
     cart = cart.filter(item => item.name !== name);
 
