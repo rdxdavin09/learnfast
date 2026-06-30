@@ -107,6 +107,20 @@ font-weight:bold;
     z-index: 9999;
     pointer-events: auto;
 }
+  .remove-btn{
+    background:#ff0000;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:8px;
+    cursor:pointer;
+    margin-top:8px;
+    width:100%;
+}
+
+.remove-btn:hover{
+    background:#cc0000;
+}
 </style>
 
 </head>
@@ -143,6 +157,9 @@ View Details
 <button class="cart-btn" onclick="addToCart('Attraction Psychology',199)">
 🛒 Add To Cart
 </button>
+    <button class="remove-btn" onclick="removeFromCart('Attraction Psychology')">
+❌ Remove
+</button>
 </div>
 
 <div class="book">
@@ -167,7 +184,9 @@ View Details
 <button class="cart-btn" onclick="addToCart('Law Of Attraction',199)">
 🛒 Add To Cart
 </button>
-  
+<button class="remove-btn" onclick="removeFromCart('Law Of Attraction')">
+❌ Remove
+</button>  
 </div>
 
 <div class="book">
@@ -192,7 +211,9 @@ View Details
 <button class="cart-btn" onclick="addToCart('99+ Flirty Texts',199)">
 🛒 Add To Cart
 </button>
-  
+<button class="remove-btn" onclick="removeFromCart('99+ Flirty Texts')">
+❌ Remove
+</button>  
 </div>
 <div class="book">
 
@@ -216,7 +237,9 @@ View Details
 <button class="cart-btn" onclick="addToCart('Men Are From Mars',199)">
 🛒 Add To Cart
 </button>
-  
+  <button class="remove-btn" onclick="removeFromCart('Men Are From Mars')">
+❌ Remove
+</button>
 </div>
 
 <div class="book">
@@ -241,7 +264,9 @@ View Details
 <button class="cart-btn" onclick="addToCart('Female Psychology',199)">
 🛒 Add To Cart
 </button>
-  
+  <button class="remove-btn" onclick="removeFromCart('Female Psychology')">
+❌ Remove
+</button>
 </div>
 
 </div>
