@@ -52,6 +52,11 @@ button{
 <button id="payBtn">
     Proceed To Payment
 </button>
+    <br><br>
+
+<button onclick="clearCart()" style="background:red;color:white;">
+Clear Cart
+</button>
 </div>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
@@ -96,6 +101,10 @@ document.getElementById("payBtn").onclick = function (e) {
     rzp.open();
 
 };
+function clearCart() {
+    localStorage.removeItem("cart");
+    location.reload();
+}        
 
 </script>
 </body>
