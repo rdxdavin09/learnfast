@@ -536,7 +536,7 @@ function removeFromCart(name) {
 
     alert("Book Removed!");
 updateSelectedBooks();
-    location.reload();
+
 }
 
 function updateSelectedBooks() {
@@ -559,8 +559,11 @@ function updateSelectedBooks() {
 
     cart.forEach(item => {
 
+    total += item.price * item.quantity;
+
+    cartItems.innerHTML += `
      
-cartItems.innerHTML += `
+
 <div style="display:flex;justify-content:space-between;align-items:center;background:#1b1b1b;padding:10px;margin:10px 0;border-radius:10px;">
     <div>
         <b>${item.name}</b><br>
