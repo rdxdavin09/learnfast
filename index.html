@@ -281,24 +281,21 @@ function addToCart(name, price) {
 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    let exists = cart.find(item => item.name === name);
+    let item = cart.find(i => i.name === name);
 
-    if (!exists) {
-
+    if (item) {
+        item.quantity += 1;
+    } else {
         cart.push({
             name: name,
-            price: price
+            price: price,
+            quantity: 1
         });
-
-        localStorage.setItem("cart", JSON.stringify(cart));
-
-        window.location.href = "cart.html";
-
-    } else {
-
-        alert("Ye book pehle se cart me hai.");
-
     }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    window.location.href = "cart.html";
 }
 
 function removeFromCart(name) {
