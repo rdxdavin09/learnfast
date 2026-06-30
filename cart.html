@@ -68,14 +68,45 @@ let totalPrice = 0;
 cart.innerHTML = "";
 
 cartData.forEach(item => {
+
     cart.innerHTML += `
-        <p>${item.name} - ₹${item.price}</p>
+    <div style="margin-bottom:15px;border-bottom:1px solid #555;padding:10px;">
+
+        <h3>${item.name}</h3>
+
+        <button onclick="changeQty('${item.name}',-1)">-</button>
+
+        <b> ${item.quantity} </b>
+
+        <button onclick="changeQty('${item.name}',1)">+</button>
+
+        <span style="float:right;">₹${item.price * item.quantity}</span>
+
+    </div>
     `;
-    totalPrice += item.price;
+
+    totalPrice += item.price * item.quantity;
+
 });
-
 total.textContent = totalPrice;
+function changeQty(name, change) {
 
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    let item = cart.find(i => i.name === name);
+
+    if (!item) return;
+
+    item.quantity += change;
+
+    if (item.quantity <= 0) {
+        cart = cart.filter(i => i.name !== name);
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    location.reload();
+}
 
 </script>
 
