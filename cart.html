@@ -96,23 +96,7 @@ document.getElementById("payBtn").onclick = function (e) {
     rzp.open();
 
 };
- document.getElementById("payBtn").onclick = function(e){
-    e.preventDefault();
 
-    var options = {
-        key: "YAHAN_APNI_RAZORPAY_KEY_ID_DALO",
-        amount: totalPrice * 100,
-        currency: "INR",
-        name: "LearnFast",
-        description: "eBook Purchase",
-        handler: function (response) {
-            alert("Payment Successful!");
-        }
-    };
-
-    var rzp = new Razorpay(options);
-    rzp.open();
-};       
 </script>
 </body>
 </html>
