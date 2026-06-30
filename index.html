@@ -257,15 +257,18 @@ function addToCart(name, price) {
 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
+let exists = cart.find(item => item.name === name);
+
+if (!exists) {
     cart.push({
         name: name,
         price: price
     });
 
     localStorage.setItem("cart", JSON.stringify(cart));
-
     alert(name + " Cart me add ho gayi!");
-
+} else {
+    alert("Ye book pehle se cart me hai.");
 }
 
 </script>
