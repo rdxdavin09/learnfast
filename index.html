@@ -538,7 +538,35 @@ function removeFromCart(name) {
 updateSelectedBooks();
 
 }
+function increaseQuantity(name) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
+    let item = cart.find(i => i.name === name);
+
+    if (item) {
+        item.quantity += 1;
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateSelectedBooks();
+}
+
+function decreaseQuantity(name) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    let item = cart.find(i => i.name === name);
+
+    if (item) {
+        if (item.quantity > 1) {
+            item.quantity -= 1;
+        } else {
+            cart = cart.filter(i => i.name !== name);
+        }
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateSelectedBooks();
+}
 function updateSelectedBooks() {
 
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -568,6 +596,13 @@ function updateSelectedBooks() {
     <div>
         <b>${item.name}</b><br>
         ₹${item.price} × ${item.quantity}
+      <div class="qty-box">
+    <button onclick="decreaseQuantity('${item.name}')">-</button>
+
+    <span>${item.quantity}</span>
+
+    <button onclick="increaseQuantity('${item.name}')">+</button>
+</div>
     </div>
 
     <button onclick="removeFromCart('${item.name}')"
