@@ -538,9 +538,50 @@ function removeFromCart(name) {
 updateSelectedBooks();
     location.reload();
 }
+
+function updateSelectedBooks() {
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    let cartItems = document.getElementById("cartItems");
+    let totalPrice = document.getElementById("totalPrice");
+
+    if (!cartItems || !totalPrice) return;
+
+    cartItems.innerHTML = "";
+    let total = 0;
+
+    if (cart.length === 0) {
+        cartItems.innerHTML = "<p style='color:#888;'>No books selected.</p>";
+        totalPrice.innerText = "0";
+        return;
     }
 
-⬇️ YAHAN PASTE KARNA HAI
+    cart.forEach(item => {
+
+      ₹${item.price} × ${item.quantity}
+
+        cartItems.innerHTML += `
+        <div style="display:flex;justify-content:space-between;align-items:center;background:#1b1b1b;padding:10px;margin:10px 0;border-radius:10px;border:1px solid #FFD700;">
+            <div>
+                <b>${item.name}</b><br>
+                ₹${item.price} × ${item.quantity}
+            </div>
+
+            <button onclick="removeFromCart('${item.name}')"
+            style="background:red;color:white;border:none;padding:8px 15px;border-radius:6px;cursor:pointer;">
+                Remove
+            </button>
+        </div>
+        `;
+
+    });
+
+    totalPrice.innerText = total;
+
+}
+
+window.onload = updateSelectedBooks;
 
 </script>
 </body>
