@@ -280,6 +280,39 @@ Relationship Skills & Communication.
 </section>
 
 <div class="container">
+    <div id="selectedBooks" style="
+background:#111;
+border:2px solid #FFD700;
+border-radius:15px;
+padding:20px;
+margin-bottom:30px;
+grid-column:1/-1;
+">
+
+<h2 style="color:#FFD700;">🛒 Selected Books</h2>
+
+<div id="cartItems">
+<p style="color:#888;">No books selected.</p>
+</div>
+
+<h3 style="color:#00ff66;">
+Total: ₹<span id="totalPrice">0</span>
+</h3>
+
+<button id="checkoutBtn"
+style="
+background:#00cc44;
+color:white;
+border:none;
+padding:15px 30px;
+font-size:18px;
+border-radius:10px;
+cursor:pointer;
+margin-top:15px;">
+Proceed To Payment
+</button>
+
+</div>
   <div class="book">
 
 <img src="Attraction psychology">
@@ -489,7 +522,7 @@ function addToCart(name, price) {
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
-
+updateSelectedBooks();
     window.location.href = "cart.html";
 }
 
@@ -502,9 +535,13 @@ function removeFromCart(name) {
     localStorage.setItem("cart", JSON.stringify(cart));
 
     alert("Book Removed!");
-
+updateSelectedBooks();
     location.reload();
 }
+    }
+
+⬇️ YAHAN PASTE KARNA HAI
+
 </script>
 </body>
 </html>
