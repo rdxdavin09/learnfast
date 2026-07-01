@@ -99,44 +99,34 @@ function changeQty(name, change) {
 
     item.quantity += change;
 
-    if (item.quantity <= 0) {
-        cart = cart.filter(i => i.name !== name);
-    }
-
-    localStorage.setItem("cart", JSON.stringify(cart));
-
-    location.reload();
-}
-
-</script>
-
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    
-    <script>
-document.getElementById("payBtn").onclick = function (e) {
+ document.getElementById("payBtn").onclick = function (e) {
     e.preventDefault();
+
     var options = {
         key: "rzp_live_T7XO0cl4FGTqId",
-     amount: totalPrice * 100,
+        amount: totalPrice * 100,
         currency: "INR",
         name: "LearnFast",
         description: "eBook Purchase",
 
-    handler: function (response) {
+        handler: function (response) {
 
-    localStorage.setItem("totalPrice", totalPrice);
-    localStorage.setItem("paymentId", response.razorpay_payment_id);
-    window.location.href = "success.html";
+            localStorage.setItem("totalPrice", totalPrice);
+            localStorage.setItem("paymentId", response.razorpay_payment_id);
 
-}
-          var rzp = new Razorpay(options);
+            window.location.href = "success.html";
+        }
+    };
+
+    var rzp = new Razorpay(options);
     rzp.open();
-
 };
+
 function clearCart() {
     localStorage.removeItem("cart");
     location.reload();
-}        
+}
+
 window.addEventListener("pageshow", function (event) {
     if (event.persisted) {
         location.reload();
