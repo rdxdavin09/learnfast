@@ -1175,17 +1175,22 @@ amountBox.innerHTML=counter;
    Download Button Animation
 =========================== */
 
-document.querySelector(".download-btn")
-.addEventListener("click",()=>{
+document.querySelector(".download-btn").addEventListener("click", () => {
 
-const btn =
-document.querySelector(".download-btn");
-  /* ===========================
+    const btn = document.querySelector(".download-btn");
+
+    setTimeout(() => {
+        alert("📚 Books Download Started Successfully!");
+    }, 2600);
+
+}); // <-- Download button event END
+
+
+/* ===========================
    Success Tick Bounce
 =========================== */
 
-const tick =
-document.querySelector(".tick-box");
+const tick = document.querySelector(".tick-box");
 
 /* ===========================
    Total Amount
@@ -1200,9 +1205,10 @@ document.getElementById("amountCounter").innerText = total;
 =========================== */
 
 const paymentId = localStorage.getItem("paymentId") || "TEST988734374";
+
 const paymentElement = document.getElementById("paymentId");
 
-if(paymentElement){
+if (paymentElement) {
     paymentElement.innerText = paymentId;
 }
 
@@ -1213,7 +1219,7 @@ if(paymentElement){
 
 const dateElement = document.getElementById("dateTime");
 
-if(dateElement){
+if (dateElement) {
     dateElement.innerText = new Date().toLocaleString("en-IN");
 }
 
@@ -1222,21 +1228,21 @@ if(dateElement){
    Auto Welcome Animation
 =========================== */
 
-window.addEventListener("load",()=>{
+window.addEventListener("load", () => {
 
-document.querySelector(".success-card").animate([
-{
-opacity:0,
-transform:"translateY(80px) scale(.8)"
-},
-{
-opacity:1,
-transform:"translateY(0) scale(1)"
-}
-],{
-duration:900,
-fill:"forwards"
-});
+    document.querySelector(".success-card").animate([
+        {
+            opacity: 0,
+            transform: "translateY(80px) scale(.8)"
+        },
+        {
+            opacity: 1,
+            transform: "translateY(0) scale(1)"
+        }
+    ], {
+        duration: 900,
+        fill: "forwards"
+    });
 
 });
 
@@ -1245,10 +1251,12 @@ fill:"forwards"
    Button Hover
 =========================== */
 
-document.querySelectorAll(".btn").forEach(btn=>{
-btn.addEventListener("mouseenter",()=>{
-btn.style.transition=".3s";
-});
+document.querySelectorAll(".btn").forEach(btn => {
+
+    btn.addEventListener("mouseenter", () => {
+        btn.style.transition = ".3s";
+    });
+
 });
 
 
@@ -1256,13 +1264,11 @@ btn.style.transition=".3s";
    Mobile Optimization
 =========================== */
 
-if(window.innerWidth<600){
+if (window.innerWidth < 600) {
 
-document.querySelector(".success-card").style.width="92%";
-
-document.querySelector(".success-title").style.fontSize="28px";
-
-document.querySelector(".amount").style.fontSize="34px";
+    document.querySelector(".success-card").style.width = "92%";
+    document.querySelector(".success-title").style.fontSize = "28px";
+    document.querySelector(".amount").style.fontSize = "34px";
 
 }
 
