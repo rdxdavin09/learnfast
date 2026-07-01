@@ -1112,36 +1112,34 @@ onclick="window.location.href='index.html'">
 <script>
 
 /* ===========================
-   Auto Date & Time
+   Payment Details
 =========================== */
 
+// Payment Time
 let paymentTime = localStorage.getItem("paymentTime");
 
 if (!paymentTime) {
     paymentTime = new Date().toLocaleString("en-IN");
     localStorage.setItem("paymentTime", paymentTime);
 }
-
 document.getElementById("dateTime").innerText = paymentTime;
 
-/* ===========================
-   Random Order ID
-=========================== */
-
+// Order ID
 let orderId = localStorage.getItem("orderId");
 
 if (!orderId) {
     orderId = "LF" + Math.floor(100000 + Math.random() * 900000);
     localStorage.setItem("orderId", orderId);
 }
-
 document.getElementById("orderId").innerText = orderId;
 
-/* ===========================
-   Random Payment ID
-=========================== */
+// Payment ID
+const paymentId = localStorage.getItem("paymentId") || "N/A";
+document.getElementById("paymentId").innerText = paymentId;
 
-   
+// Customer Name
+const customerName = localStorage.getItem("customerName") || "Customer";
+document.getElementById("customerName").innerText = customerName;
 
 
 /* ===========================
@@ -1151,25 +1149,20 @@ document.getElementById("orderId").innerText = orderId;
 let amount = Number(localStorage.getItem("totalPrice")) || 0;
 let counter = 0;
 
-const amountBox =
-document.getElementById("amountCounter");
+const amountBox = document.getElementById("amountCounter");
 
-const timer =
-setInterval(()=>{
+const timer = setInterval(() => {
 
-counter += 4;
+    counter += 4;
 
-if(counter>=amount){
+    if (counter >= amount) {
+        counter = amount;
+        clearInterval(timer);
+    }
 
-counter=amount;
+    amountBox.innerHTML = counter;
 
-clearInterval(timer);
-
-}
-
-amountBox.innerHTML=counter;
-
-},15);
+}, 15);
 
 
 /* ===========================
@@ -1178,13 +1171,11 @@ amountBox.innerHTML=counter;
 
 document.querySelector(".download-btn").addEventListener("click", () => {
 
-    const btn = document.querySelector(".download-btn");
-
     setTimeout(() => {
         alert("📚 Books Download Started Successfully!");
     }, 2600);
 
-}); // <-- Download button event END
+});
 
 
 /* ===========================
@@ -1192,41 +1183,6 @@ document.querySelector(".download-btn").addEventListener("click", () => {
 =========================== */
 
 const tick = document.querySelector(".tick-box");
-
-/* ===========================
-   Total Amount
-=========================== */
-
-const total = localStorage.getItem("totalPrice") || "0";
-document.getElementById("amountCounter").innerText = total;
-
-
-/* ===========================
-   Payment ID
-=========================== */
-
-const paymentId = localStorage.getItem("paymentId") || "TEST988734374";
-
-const paymentElement = document.getElementById("paymentId");
-
-if (paymentElement) {
-    paymentElement.innerText = paymentId;
-}
-let customerName = localStorage.getItem("customerName") || "Customer";
-
-const customerElement = document.getElementById("customerName");
-
-if (customerElement) {
-    customerElement.innerText = customerName;
-}
-
-/* ===========================
-   Date & Time
-=========================== */
-
-
-
-document.getElementById("dateTime").innerText = paymentTime;
 
 
 /* ===========================
@@ -1288,6 +1244,8 @@ if (window.innerWidth < 600) {
 // Email Confirmation
 // Payment Verification
 // Database Integration
+
+</script>
 </script>
 
 </body>
