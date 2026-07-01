@@ -1,1 +1,1426 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Payment Successful</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+
+height:100vh;
+
+overflow:hidden;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+position:relative;
+
+background:
+linear-gradient(
+135deg,
+#030303,
+#0a0a0a,
+#101010,
+#050505);
+
+color:white;
+
+}
+
+
+/* ===========================
+   Animated Background
+=========================== */
+
+body::before{
+
+content:"";
+
+position:absolute;
+
+width:220%;
+
+height:220%;
+
+background:
+
+radial-gradient(circle,#00ff5530 2px,transparent 2px);
+
+background-size:45px 45px;
+
+animation:bgMove 18s linear infinite;
+
+opacity:.45;
+
+}
+
+@keyframes bgMove{
+
+0%{
+
+transform:translate(0,0);
+
+}
+
+100%{
+
+transform:translate(-250px,-250px);
+
+}
+
+}
+
+
+/* Moving Glow */
+
+body::after{
+
+content:"";
+
+position:absolute;
+
+width:700px;
+
+height:700px;
+
+border-radius:50%;
+
+background:
+
+radial-gradient(circle,
+#00ff6640,
+transparent 70%);
+
+filter:blur(60px);
+
+animation:glowMove 10s ease-in-out infinite alternate;
+
+}
+
+@keyframes glowMove{
+
+0%{
+
+transform:
+translate(-220px,-180px);
+
+}
+
+100%{
+
+transform:
+translate(220px,180px);
+
+}
+
+}
+/* ===========================
+   Floating Particles
+=========================== */
+
+.particle{
+
+position:absolute;
+
+border-radius:50%;
+
+pointer-events:none;
+
+opacity:.8;
+
+animation:floatUp linear infinite;
+
+filter:blur(1px);
+
+}
+
+.p1{
+
+width:12px;
+height:12px;
+
+left:8%;
+bottom:-20px;
+
+background:#00ff66;
+
+animation-duration:8s;
+
+}
+
+.p2{
+
+width:18px;
+height:18px;
+
+left:20%;
+bottom:-40px;
+
+background:#FFD700;
+
+animation-duration:11s;
+
+}
+
+.p3{
+
+width:8px;
+height:8px;
+
+left:42%;
+bottom:-20px;
+
+background:#00ff66;
+
+animation-duration:7s;
+
+}
+
+.p4{
+
+width:16px;
+height:16px;
+
+left:63%;
+bottom:-30px;
+
+background:#ffffff;
+
+animation-duration:10s;
+
+}
+
+.p5{
+
+width:25px;
+height:25px;
+
+left:82%;
+bottom:-40px;
+
+background:#00ff66;
+
+animation-duration:12s;
+
+}
+
+@keyframes floatUp{
+
+0%{
+
+transform:
+translateY(0)
+scale(.3);
+
+opacity:0;
+
+}
+
+20%{
+
+opacity:1;
+
+}
+
+100%{
+
+transform:
+translateY(-120vh)
+scale(1.4);
+
+opacity:0;
+
+}
+
+}
+
+
+/* ===========================
+   Premium Glass Card
+=========================== */
+
+.success-card{
+
+position:relative;
+
+width:470px;
+
+padding:40px;
+
+border-radius:28px;
+
+background:
+
+rgba(255,255,255,.08);
+
+backdrop-filter:blur(18px);
+
+border:
+
+1px solid rgba(255,255,255,.15);
+
+box-shadow:
+
+0 0 25px rgba(0,255,100,.25),
+
+0 0 80px rgba(0,255,100,.15);
+
+overflow:hidden;
+
+z-index:10;
+
+animation:
+
+cardEntry 1s ease;
+
+}
+
+@keyframes cardEntry{
+
+0%{
+
+opacity:0;
+
+transform:
+
+translateY(80px)
+
+scale(.75);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:
+
+translateY(0)
+
+scale(1);
+
+}
+
+}
+
+
+/* Animated Border */
+
+.success-card::before{
+
+content:"";
+
+position:absolute;
+
+inset:-2px;
+
+border-radius:30px;
+
+padding:2px;
+
+background:
+
+linear-gradient(
+
+45deg,
+
+#00ff66,
+
+#00ffaa,
+
+#00ff66,
+
+#00ffaa);
+
+background-size:400%;
+
+animation:
+
+borderMove 8s linear infinite;
+
+-webkit-mask:
+
+linear-gradient(#fff 0 0)
+
+content-box,
+
+linear-gradient(#fff 0 0);
+
+-webkit-mask-composite:xor;
+
+mask-composite:exclude;
+
+}
+
+@keyframes borderMove{
+
+0%{
+
+background-position:0%;
+
+}
+
+100%{
+
+background-position:400%;
+
+}
+
+}
+  I/* ===========================
+   3D Success Tick
+=========================== */
+
+.tick-box{
+
+width:150px;
+height:150px;
+
+margin:auto;
+
+border-radius:50%;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+background:
+linear-gradient(145deg,#00ff66,#00c853);
+
+box-shadow:
+
+0 0 20px #00ff66,
+
+0 0 40px #00ff66,
+
+0 0 80px #00ff6666;
+
+animation:
+
+tickRotate 8s linear infinite,
+
+tickPulse 2s ease-in-out infinite;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.tick-box::before{
+
+content:"";
+
+position:absolute;
+
+width:220%;
+
+height:220%;
+
+background:
+
+linear-gradient(
+
+transparent,
+
+rgba(255,255,255,.35),
+
+transparent);
+
+transform:rotate(45deg);
+
+animation:
+
+shine 3s linear infinite;
+
+}
+
+.tick{
+
+font-size:70px;
+
+font-weight:800;
+
+color:white;
+
+position:relative;
+
+z-index:5;
+
+text-shadow:
+
+0 0 15px white,
+
+0 0 30px white;
+
+animation:
+
+tickZoom .8s ease;
+
+}
+
+@keyframes tickZoom{
+
+0%{
+
+transform:scale(0);
+
+}
+
+70%{
+
+transform:scale(1.25);
+
+}
+
+100%{
+
+transform:scale(1);
+
+}
+
+}
+
+@keyframes tickRotate{
+
+100%{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+@keyframes tickPulse{
+
+50%{
+
+box-shadow:
+
+0 0 30px #00ff66,
+
+0 0 80px #00ff66,
+
+0 0 140px #00ff66aa;
+
+}
+
+}
+
+@keyframes shine{
+
+0%{
+
+left:-180%;
+
+}
+
+100%{
+
+left:180%;
+
+}
+
+}
+
+
+/* ===========================
+   Heading
+=========================== */
+
+.success-title{
+
+margin-top:30px;
+
+font-size:36px;
+
+font-weight:800;
+
+text-align:center;
+
+background:
+
+linear-gradient(
+
+90deg,
+
+#ffffff,
+
+#00ff66,
+
+#ffffff);
+
+background-size:300%;
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+animation:
+
+textGlow 6s linear infinite;
+
+}
+
+@keyframes textGlow{
+
+100%{
+
+background-position:300%;
+
+}
+
+}
+
+.success-sub{
+
+margin-top:15px;
+
+font-size:18px;
+
+text-align:center;
+
+color:#dddddd;
+
+line-height:1.7;
+
+opacity:.95;
+
+}
+  /* ===========================
+   Premium Info Cards
+=========================== */
+
+.info-box{
+
+margin-top:30px;
+
+display:flex;
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+.info-card{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:15px 20px;
+
+border-radius:18px;
+
+background:rgba(255,255,255,.06);
+
+border:1px solid rgba(255,255,255,.12);
+
+backdrop-filter:blur(12px);
+
+transition:.35s;
+
+}
+
+.info-card:hover{
+
+transform:translateY(-4px);
+
+background:rgba(0,255,100,.12);
+
+box-shadow:
+
+0 0 20px rgba(0,255,100,.30);
+
+}
+
+.info-title{
+
+font-size:15px;
+
+color:#bbbbbb;
+
+font-weight:500;
+
+}
+
+.info-value{
+
+font-size:17px;
+
+font-weight:700;
+
+color:#ffffff;
+
+}
+
+
+/* Amount Card */
+
+.amount-card{
+
+margin-top:25px;
+
+padding:20px;
+
+border-radius:20px;
+
+background:
+
+linear-gradient(135deg,#00ff6630,#00c85320);
+
+border:1px solid #00ff66;
+
+text-align:center;
+
+box-shadow:
+
+0 0 20px rgba(0,255,100,.25);
+
+}
+
+.amount-title{
+
+font-size:16px;
+
+color:#dddddd;
+
+margin-bottom:10px;
+
+}
+
+.amount{
+
+font-size:42px;
+
+font-weight:800;
+
+color:#FFD700;
+
+text-shadow:
+
+0 0 12px rgba(255,215,0,.7);
+
+animation:amountPulse 2s infinite;
+
+}
+
+@keyframes amountPulse{
+
+50%{
+
+transform:scale(1.08);
+
+}
+
+}
+  /* ===========================
+   Premium Buttons
+=========================== */
+
+.button-group{
+
+margin-top:35px;
+
+display:flex;
+
+flex-direction:column;
+
+gap:16px;
+
+}
+
+.btn{
+
+position:relative;
+
+overflow:hidden;
+
+width:100%;
+
+padding:18px;
+
+border:none;
+
+border-radius:18px;
+
+font-size:18px;
+
+font-weight:700;
+
+cursor:pointer;
+
+transition:.35s;
+
+letter-spacing:.5px;
+
+}
+
+.btn::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:-120%;
+
+width:120%;
+
+height:100%;
+
+background:
+
+linear-gradient(
+
+90deg,
+
+transparent,
+
+rgba(255,255,255,.35),
+
+transparent);
+
+transition:.7s;
+
+}
+
+.btn:hover::before{
+
+left:120%;
+
+}
+
+/* Download */
+
+.download-btn{
+
+background:
+
+linear-gradient(135deg,#00ff66,#00b84d);
+
+color:white;
+
+box-shadow:
+
+0 12px 30px rgba(0,255,100,.35);
+
+}
+
+.download-btn:hover{
+
+transform:
+
+translateY(-6px)
+
+scale(1.03);
+
+box-shadow:
+
+0 18px 45px rgba(0,255,100,.55);
+
+}
+
+/* Invoice */
+
+.invoice-btn{
+
+background:
+
+linear-gradient(135deg,#00bfff,#007bff);
+
+color:white;
+
+box-shadow:
+
+0 12px 30px rgba(0,150,255,.35);
+
+}
+
+.invoice-btn:hover{
+
+transform:
+
+translateY(-6px)
+
+scale(1.03);
+
+box-shadow:
+
+0 18px 45px rgba(0,150,255,.55);
+
+}
+
+/* Home */
+
+.home-btn{
+
+background:
+
+linear-gradient(135deg,#FFD700,#ffb300);
+
+color:#111;
+
+box-shadow:
+
+0 12px 30px rgba(255,215,0,.35);
+
+}
+
+.home-btn:hover{
+
+transform:
+
+translateY(-6px)
+
+scale(1.03);
+
+box-shadow:
+
+0 18px 45px rgba(255,215,0,.55);
+
+}
+
+/* Ripple Effect */
+
+.btn:active{
+
+transform:scale(.96);
+
+}
+  /* ===========================
+   Confetti Animation
+=========================== */
+
+.confetti{
+
+position:absolute;
+
+width:10px;
+
+height:20px;
+
+top:-20px;
+
+opacity:0;
+
+animation:confettiFall linear infinite;
+
+}
+
+.c1{left:5%;background:#FFD700;animation-duration:5s;}
+.c2{left:15%;background:#00ff66;animation-duration:6s;}
+.c3{left:25%;background:#ff4d4d;animation-duration:4.5s;}
+.c4{left:35%;background:#00bfff;animation-duration:5.5s;}
+.c5{left:45%;background:#ff00ff;animation-duration:6.5s;}
+.c6{left:55%;background:#FFD700;animation-duration:5.2s;}
+.c7{left:65%;background:#00ff66;animation-duration:4.8s;}
+.c8{left:75%;background:#00bfff;animation-duration:6s;}
+.c9{left:85%;background:#ff4d4d;animation-duration:5.7s;}
+.c10{left:95%;background:#ffffff;animation-duration:6.2s;}
+
+@keyframes confettiFall{
+
+0%{
+
+transform:
+translateY(-50px)
+rotate(0deg);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:
+translateY(120vh)
+rotate(720deg);
+
+opacity:0;
+
+}
+
+}
+
+
+/* ===========================
+   Fireworks
+=========================== */
+
+.firework{
+
+position:absolute;
+
+width:8px;
+
+height:8px;
+
+border-radius:50%;
+
+background:#FFD700;
+
+box-shadow:
+
+0 0 15px #FFD700,
+
+0 0 30px #FFD700;
+
+animation:
+
+fireworks 2.
+  </style>
+
+</head>
+
+<body>
+
+<!-- Floating Particles -->
+<div class="particle p1"></div>
+<div class="particle p2"></div>
+<div class="particle p3"></div>
+<div class="particle p4"></div>
+<div class="particle p5"></div>
+
+<!-- Confetti -->
+<div class="confetti c1"></div>
+<div class="confetti c2"></div>
+<div class="confetti c3"></div>
+<div class="confetti c4"></div>
+<div class="confetti c5"></div>
+<div class="confetti c6"></div>
+<div class="confetti c7"></div>
+<div class="confetti c8"></div>
+<div class="confetti c9"></div>
+<div class="confetti c10"></div>
+
+<!-- Fireworks -->
+<div class="firework fw1"></div>
+<div class="firework fw2"></div>
+<div class="firework fw3"></div>
+
+<div class="success-card">
+
+<div class="tick-box">
+<div class="tick">✓</div>
+</div>
+
+<h1 class="success-title">
+Payment Successful
+</h1>
+
+<p class="success-sub">
+Your payment has been completed successfully.
+Thank you for purchasing with LearnFast.
+</p>
+
+<div class="info-box">
+
+<div class="info-card">
+<span class="info-title">Customer</span>
+<span class="info-value" id="customerName">
+Davin
+</span>
+</div>
+
+<div class="info-card">
+<span class="info-title">Order ID</span>
+<span class="info-value" id="orderId">
+LF000001
+</span>
+</div>
+
+<div class="info-card">
+<span class="info-title">Payment ID</span>
+<span class="info-value" id="paymentId">
+RZP123456789
+</span>
+</div>
+
+<div class="info-card">
+<span class="info-title">Date & Time</span>
+<span class="info-value" id="paymentTime">
+Loading...
+</span>
+</div>
+
+<div class="amount-card">
+
+<div class="amount-title">
+
+Total Paid
+
+</div>
+
+<div class="amount">
+
+₹<span id="amountCounter">398</span>
+
+</div>
+
+</div>
+
+<div class="button-group">
+
+<button class="btn download-btn">
+
+📥 Download Books
+
+</button>
+
+<button class="btn invoice-btn">
+
+📄 Download Invoice
+
+</button>
+
+<button
+class="btn home-btn"
+onclick="window.location.href='index.html'">
+
+🏠 Back To Home
+
+</button>
+
+</div>
+
+</div>
+<script>
+
+/* ===========================
+   Auto Date & Time
+=========================== */
+
+const now = new Date();
+
+document.getElementById("paymentTime").innerHTML =
+now.toLocaleString("en-IN");
+
+
+/* ===========================
+   Random Order ID
+=========================== */
+
+document.getElementById("orderId").innerHTML =
+"LF" + Math.floor(
+100000 + Math.random()*900000
+);
+
+
+/* ===========================
+   Random Payment ID
+=========================== */
+
+document.getElementById("paymentId").innerHTML =
+"RZP" +
+Math.random()
+.toString(36)
+.substring(2,12)
+.toUpperCase();
+
+
+/* ===========================
+   Amount Counter Animation
+=========================== */
+
+let amount = 398;
+
+let counter = 0;
+
+const amountBox =
+document.getElementById("amountCounter");
+
+const timer =
+setInterval(()=>{
+
+counter += 4;
+
+if(counter>=amount){
+
+counter=amount;
+
+clearInterval(timer);
+
+}
+
+amountBox.innerHTML=counter;
+
+},15);
+
+
+/* ===========================
+   Download Button Animation
+=========================== */
+
+document.querySelector(".download-btn")
+.addEventListener("click",()=>{
+
+const btn =
+document.querySelector(".download-btn");
+  /* ===========================
+   Success Tick Bounce
+=========================== */
+
+const tick =
+document.querySelector(".tick-box");
+
+setInterval(()=>{
+
+tick.animate([
+
+{
+transform:"scale(1)"
+},
+
+{
+transform:"scale(1.15)"
+},
+
+{
+transform:"scale(1)"
+}
+
+],{
+
+duration:1000
+
+});
+
+},2500);
+
+
+/* ===========================
+   Floating Glow Effect
+=========================== */
+
+document.querySelectorAll(".particle")
+
+.forEach(p=>{
+
+setInterval(()=>{
+
+p.style.filter=
+
+"drop-shadow(0 0 18px #00ff66)";
+
+setTimeout(()=>{
+
+p.style.filter="none";
+
+},500);
+
+},3000);
+
+});
+
+
+/* ===========================
+   Firework Flash
+=========================== */
+
+document.querySelectorAll(".firework")
+
+.forEach(f=>{
+
+setInterval(()=>{
+
+f.animate([
+
+{
+
+opacity:0,
+
+transform:"scale(.3)"
+
+},
+
+{
+
+opacity:1,
+
+transform:"scale(8)"
+
+},
+
+{
+
+opacity:0,
+
+transform:"scale(13)"
+
+}
+
+],{
+
+duration:1800
+
+});
+
+},2500);
+
+});
+
+
+/* ===========================
+   Home Button Ripple
+=========================== */
+
+document.querySelector(".home-btn")
+
+.addEventListener("click",(e)=>{
+
+const btn=e.currentTarget;
+
+btn.animate([
+
+{
+
+transform:"scale(1)"
+
+},
+
+{
+
+transform:"scale(.95)"
+
+},
+
+{
+
+transform:"scale(1)"
+
+}
+
+],{
+
+duration:250
+
+});
+
+});
+
+
+/* ===========================
+   Download Success Effect
+=========================== */
+
+document.querySelector(".download-btn")
+
+.addEventListener("click",()=>{
+
+setTimeout(()=>{
+
+alert("📚 Books Download Started Successfully!");
+
+},2600);
+
+});
+  /* ===========================
+   Auto Welcome Animation
+=========================== */
+
+window.addEventListener("load",()=>{
+
+document.querySelector(".success-card").animate([
+
+{
+opacity:0,
+transform:"translateY(80px) scale(.8)"
+},
+
+{
+opacity:1,
+transform:"translateY(0) scale(1)"
+}
+
+],{
+
+duration:900,
+fill:"forwards"
+
+});
+
+});
+
+
+/* ===========================
+   Button Hover Sound (Optional)
+=========================== */
+
+document.querySelectorAll(".btn").forEach(btn=>{
+
+btn.addEventListener("mouseenter",()=>{
+
+btn.style.transition=".3s";
+
+});
+
+});
+
+
+/* ===========================
+   Mobile Optimization
+=========================== */
+
+if(window.innerWidth<600){
+
+document.querySelector(".success-card").style.width="92%";
+
+document.querySelector(".success-title").style.fontSize="28px";
+
+document.querySelector(".amount").style.fontSize="34px";
+
+}
+
+
+/* ===========================
+   Future Ready Functions
+=========================== */
+
+// TODO:
+// Download PDF
+// Download Invoice
+// Email Confirmation
+// Payment Verification
+// Database Integration
+
+</script>
+
+</body>
+
+</html>
