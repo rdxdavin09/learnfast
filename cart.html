@@ -122,13 +122,14 @@ document.getElementById("payBtn").onclick = function (e) {
         name: "LearnFast",
         description: "eBook Purchase",
 
-        handler: function (response) {
-            alert("Payment Successful!\nPayment ID: " + response.razorpay_payment_id);
-        }
-    };
+    handler: function (response) {
 
+    localStorage.setItem("totalPrice", totalPrice);
+    localStorage.setItem("paymentId", response.razorpay_payment_id);
+    window.location.href = "success.html";
 
-    var rzp = new Razorpay(options);
+}
+          var rzp = new Razorpay(options);
     rzp.open();
 
 };
