@@ -1158,8 +1158,7 @@ Math.random()
    Amount Counter Animation
 =========================== */
 
-let amount = 398;
-
+let amount = Number(localStorage.getItem("totalPrice")) || 0;
 let counter = 0;
 
 const amountBox =
