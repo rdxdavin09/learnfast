@@ -1054,7 +1054,7 @@ Thank you for purchasing with LearnFast.
 <div class="info-card">
 <span class="info-title">Customer</span>
 <span class="info-value" id="customerName">
-Davin
+Loading...
 </span>
 </div>
 
@@ -1212,7 +1212,13 @@ const paymentElement = document.getElementById("paymentId");
 if (paymentElement) {
     paymentElement.innerText = paymentId;
 }
+let customerName = localStorage.getItem("customerName") || "Customer";
 
+const customerElement = document.getElementById("customerName");
+
+if (customerElement) {
+    customerElement.innerText = customerName;
+}
 
 /* ===========================
    Date & Time
