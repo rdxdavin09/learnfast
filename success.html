@@ -1068,7 +1068,7 @@ LF000001
 <div class="info-card">
 <span class="info-title">Payment ID</span>
 <span class="info-value" id="paymentId">
-RZP123456789
+<span class="info-value" id="paymentId">Loading...</span>
 </span>
 </div>
 
@@ -1417,7 +1417,13 @@ document.querySelector(".amount").style.fontSize="34px";
 // Email Confirmation
 // Payment Verification
 // Database Integration
+// Total Amount
+const total = localStorage.getItem("totalPrice") || "0";
+document.getElementById("amountCounter").innerText = total;
 
+// Payment ID
+const paymentId = localStorage.getItem("paymentId") || "Not Available";
+document.getElementById("paymentId").innerText = paymentId;
 </script>
 
 </body>
