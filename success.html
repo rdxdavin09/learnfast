@@ -1198,197 +1198,68 @@ document.querySelector(".download-btn");
 const tick =
 document.querySelector(".tick-box");
 
-setInterval(()=>{
+/* ===========================
+   Total Amount
+=========================== */
 
-tick.animate([
+const total = localStorage.getItem("totalPrice") || "0";
+document.getElementById("amountCounter").innerText = total;
 
-{
-transform:"scale(1)"
-},
 
-{
-transform:"scale(1.15)"
-},
+/* ===========================
+   Payment ID
+=========================== */
 
-{
-transform:"scale(1)"
+const paymentId = localStorage.getItem("paymentId") || "TEST988734374";
+const paymentElement = document.getElementById("paymentId");
+
+if(paymentElement){
+    paymentElement.innerText = paymentId;
 }
 
-],{
-
-duration:1000
-
-});
-
-},2500);
-
 
 /* ===========================
-   Floating Glow Effect
+   Date & Time
 =========================== */
 
-document.querySelectorAll(".particle")
+const dateElement = document.getElementById("dateTime");
 
-.forEach(p=>{
-
-setInterval(()=>{
-
-p.style.filter=
-
-"drop-shadow(0 0 18px #00ff66)";
-
-setTimeout(()=>{
-
-p.style.filter="none";
-
-},500);
-
-},3000);
-
-});
-
-
-/* ===========================
-   Firework Flash
-=========================== */
-
-document.querySelectorAll(".firework")
-
-.forEach(f=>{
-
-setInterval(()=>{
-
-f.animate([
-
-{
-
-opacity:0,
-
-transform:"scale(.3)"
-
-},
-
-{
-
-opacity:1,
-
-transform:"scale(8)"
-
-},
-
-{
-
-opacity:0,
-
-transform:"scale(13)"
-
+if(dateElement){
+    dateElement.innerText = new Date().toLocaleString("en-IN");
 }
 
-],{
-
-duration:1800
-
-});
-
-},2500);
-
-});
-
 
 /* ===========================
-   Home Button Ripple
-=========================== */
-
-document.querySelector(".home-btn")
-
-.addEventListener("click",(e)=>{
-
-const btn=e.currentTarget;
-
-btn.animate([
-
-{
-
-transform:"scale(1)"
-
-},
-
-{
-
-transform:"scale(.95)"
-
-},
-
-{
-
-transform:"scale(1)"
-
-}
-
-],{
-
-duration:250
-
-});
-
-});
-
-
-/* ===========================
-   Download Success Effect
-=========================== */
-
-document.querySelector(".download-btn")
-
-.addEventListener("click",()=>{
-
-setTimeout(()=>{
-
-alert("📚 Books Download Started Successfully!");
-
-},2600);
-
-});
-  /* ===========================
    Auto Welcome Animation
 =========================== */
 
 window.addEventListener("load",()=>{
 
 document.querySelector(".success-card").animate([
-
 {
 opacity:0,
 transform:"translateY(80px) scale(.8)"
 },
-
 {
 opacity:1,
 transform:"translateY(0) scale(1)"
 }
-
 ],{
-
 duration:900,
 fill:"forwards"
-
 });
 
 });
 
 
 /* ===========================
-   Button Hover Sound (Optional)
+   Button Hover
 =========================== */
 
 document.querySelectorAll(".btn").forEach(btn=>{
-
 btn.addEventListener("mouseenter",()=>{
-
 btn.style.transition=".3s";
-
 });
-
 });
 
 
@@ -1417,13 +1288,6 @@ document.querySelector(".amount").style.fontSize="34px";
 // Email Confirmation
 // Payment Verification
 // Database Integration
-// Total Amount
-const total = localStorage.getItem("totalPrice") || "0";
-document.getElementById("amountCounter").innerText = total;
-
-// Payment ID
-const paymentId = localStorage.getItem("paymentId") || "Not Available";
-document.getElementById("paymentId").innerText = paymentId;
 </script>
 
 </body>
