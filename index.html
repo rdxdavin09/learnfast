@@ -299,7 +299,7 @@ grid-column:1/-1;
 Total: ₹<span id="totalPrice">0</span>
 </h3>
 
-<button id="checkoutBtn"
+<button id="checkoutBtn" onclick="checkout()"
 style="
 background:#00cc44;
 color:white;
@@ -623,7 +623,9 @@ cartItems.innerHTML += `
 }
 
 window.onload = updateSelectedBooks;
-
+function checkout() {
+    alert("Payment gateway will be connected in the next step.");
+}
 </script>
 </body>
 </html>
