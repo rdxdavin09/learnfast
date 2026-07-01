@@ -585,11 +585,11 @@ function updateSelectedBooks() {
         return;
     }
 
-    cart.forEach(item => {
+  cart.forEach(item => {
 
     total += item.price * item.quantity;
 
-cartItems.innerHTML += `
+    cartItems.innerHTML += `
 <div style="display:flex;justify-content:space-between;align-items:center;background:#1b1b1b;padding:10px;margin:10px 0;border-radius:10px;">
 
     <div>
@@ -598,31 +598,31 @@ cartItems.innerHTML += `
 
         <div style="display:flex;align-items:center;gap:5px;margin-top:8px;">
             <button onclick="decreaseQuantity('${item.name}')"
-            style="width:30px;height:30px;background:red;color:white;border:none;border-radius:5px;cursor:pointer;">-</button>
+                style="width:30px;height:30px;background:red;color:white;border:none;border-radius:5px;cursor:pointer;">-</button>
 
             <span style="background:white;color:black;padding:4px 10px;border-radius:4px;font-weight:bold;">
                 ${item.quantity}
             </span>
 
             <button onclick="increaseQuantity('${item.name}')"
-            style="width:30px;height:30px;background:green;color:white;border:none;border-radius:5px;cursor:pointer;">+</button>
+                style="width:30px;height:30px;background:green;color:white;border:none;border-radius:5px;cursor:pointer;">+</button>
         </div>
     </div>
 
     <button onclick="removeFromCart('${item.name}')"
-    style="background:red;color:white;border:none;padding:8px 15px;border-radius:6px;cursor:pointer;">
+        style="background:red;color:white;border:none;padding:8px 15px;border-radius:6px;cursor:pointer;">
         Remove
     </button>
 
 </div>
 `;
+});
 
-
-    totalPrice.innerText = total;
-
+totalPrice.innerText = total;
 }
 
 window.onload = updateSelectedBooks;
+
 function checkout() {
     alert("Payment gateway will be connected in the next step.");
 }
