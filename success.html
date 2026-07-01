@@ -1218,11 +1218,14 @@ if (paymentElement) {
    Date & Time
 =========================== */
 
-const dateElement = document.getElementById("dateTime");
+let paymentTime = localStorage.getItem("paymentTime");
 
-if (dateElement) {
-    dateElement.innerText = new Date().toLocaleString("en-IN");
+if (!paymentTime) {
+    paymentTime = new Date().toLocaleString("en-IN");
+    localStorage.setItem("paymentTime", paymentTime);
 }
+
+document.getElementById("dateTime").innerText = paymentTime;
 
 
 /* ===========================
