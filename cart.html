@@ -125,12 +125,14 @@ return;
         currency: "INR",
         name: "LearnFast",
         description: "eBook Purchase",
-
+prefill: {
+    name: "Davin"
+},
         handler: function (response) {
 
             localStorage.setItem("totalPrice", totalPrice);
             localStorage.setItem("paymentId", response.razorpay_payment_id);
-
+localStorage.setItem("customerName", options.prefill.name);
             window.location.href = "success.html";
         }
     };
