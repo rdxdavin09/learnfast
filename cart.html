@@ -111,7 +111,11 @@ location.reload();
 
 document.getElementById("payBtn").onclick = function (e) {
     e.preventDefault();
-
+// ===== TEST MODE =====
+localStorage.setItem("totalPrice", totalPrice);
+localStorage.setItem("paymentId", "TEST988734374");
+window.location.href = "success.html";
+return;
     var options = {
         key: "rzp_live_T7XO0cl4FGTqId",
         amount: totalPrice * 100,
