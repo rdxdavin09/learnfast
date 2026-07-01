@@ -113,7 +113,10 @@ document.getElementById("payBtn").onclick = function (e) {
     e.preventDefault();
 // ===== TEST MODE =====
 localStorage.setItem("totalPrice", totalPrice);
-localStorage.setItem("paymentId", "TEST988734374");
+localStorage.setItem(
+    "paymentId",
+    "RZP" + Date.now()
+);
 window.location.href = "success.html";
 return;
     var options = {
