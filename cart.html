@@ -117,31 +117,31 @@ localStorage.setItem(
     "paymentId",
     "RZP" + Date.now()
 );
-window.location.href = "success.html";
-return;
-    var options = {
-        key: "rzp_live_T7XO0cl4FGTqId",
-        amount: totalPrice * 100,
-        currency: "INR",
-        name: "LearnFast",
-        description: "eBook Purchase",
-prefill: {
-    name: "Davin"
-},
-        
-        handler: function (response) {
+var options = {
+    key: "rzp_live_T7XO0cl4FGTqId",
+    amount: totalPrice * 100,
+    currency: "INR",
+    name: "LearnFast",
+    description: "eBook Purchase",
 
-            localStorage.setItem("totalPrice", totalPrice);
-            localStorage.setItem("paymentId", response.razorpay_payment_id);
-localStorage.setItem("customerName", "Davin");
-            localStorage.setItem("orderId", "LF" + Math.floor(100000 + Math.random() * 900000));
-localStorage.setItem("paymentTime", new Date().toLocaleString("en-IN"));
-            window.location.href = "success.html";
-        }
-    };
+    prefill: {
+        name: "Davin"
+    },
 
-    var rzp = new Razorpay(options);
-    rzp.open();
+    handler: function (response) {
+
+        localStorage.setItem("totalPrice", totalPrice);
+        localStorage.setItem("paymentId", response.razorpay_payment_id);
+        localStorage.setItem("customerName", "Davin");
+        localStorage.setItem("orderId", "LF" + Math.floor(100000 + Math.random() * 900000));
+        localStorage.setItem("paymentTime", new Date().toLocaleString("en-IN"));
+
+        window.location.href = "success.html";
+    }
+};
+
+var rzp = new Razorpay(options);
+rzp.open();
 };
 
 // ==================== CLEAR CART ====================
