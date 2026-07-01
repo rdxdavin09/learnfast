@@ -128,11 +128,14 @@ return;
 prefill: {
     name: "Davin"
 },
+        
         handler: function (response) {
 
             localStorage.setItem("totalPrice", totalPrice);
             localStorage.setItem("paymentId", response.razorpay_payment_id);
 localStorage.setItem("customerName", "Davin");
+            localStorage.setItem("orderId", "LF" + Math.floor(100000 + Math.random() * 900000));
+localStorage.setItem("paymentTime", new Date().toLocaleString("en-IN"));
             window.location.href = "success.html";
         }
     };
