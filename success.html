@@ -1115,20 +1115,27 @@ onclick="window.location.href='index.html'">
    Auto Date & Time
 =========================== */
 
-const now = new Date();
+let paymentTime = localStorage.getItem("paymentTime");
 
-document.getElementById("dateTime").innerHTML =
-now.toLocaleString("en-IN");
+if (!paymentTime) {
+    paymentTime = new Date().toLocaleString("en-IN");
+    localStorage.setItem("paymentTime", paymentTime);
+}
+
+document.getElementById("dateTime").innerText = paymentTime;
 
 /* ===========================
    Random Order ID
 =========================== */
 
-document.getElementById("orderId").innerHTML =
-"LF" + Math.floor(
-100000 + Math.random()*900000
-);
+let orderId = localStorage.getItem("orderId");
 
+if (!orderId) {
+    orderId = "LF" + Math.floor(100000 + Math.random() * 900000);
+    localStorage.setItem("orderId", orderId);
+}
+
+document.getElementById("orderId").innerText = orderId;
 
 /* ===========================
    Random Payment ID
