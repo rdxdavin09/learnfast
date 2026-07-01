@@ -1224,12 +1224,7 @@ if (customerElement) {
    Date & Time
 =========================== */
 
-let paymentTime = localStorage.getItem("paymentTime");
 
-if (!paymentTime) {
-    paymentTime = new Date().toLocaleString("en-IN");
-    localStorage.setItem("paymentTime", paymentTime);
-}
 
 document.getElementById("dateTime").innerText = paymentTime;
 
