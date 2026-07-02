@@ -109,18 +109,29 @@ location.reload();
 
 // ==================== PAYMENT ====================
 
-document.getElementById("payBtn").onclick = function (e) {
-    e.preventDefault();
+e.preventDefault();
+
 // ===== TEST MODE =====
 localStorage.setItem("totalPrice", totalPrice);
-localStorage.setItem(
-    "paymentId",
-    "RZP" + Date.now()
-);
+localStorage.setItem("paymentId", "RZP" + Date.now());
+
+const res = await fetch("http://localhost:5000/create-order", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        amount: totalPrice
+    })
+});
+
+const order = await res.json();
+
 var options = {
-   key: "rzp_test_T8Ef5Ht4FPwfeA",
-    amount: totalPrice * 100,
-    currency: "INR",
+    key: "rzp_test_T8Ef5Ht4FPwfeA",
+    amount: order.amount,
+    currency: order.currency,
+    order_id: order.id,
     name: "LearnFast",
     description: "eBook Purchase",
 
@@ -133,7 +144,7 @@ var options = {
         localStorage.setItem("totalPrice", totalPrice);
         localStorage.setItem("paymentId", response.razorpay_payment_id);
         localStorage.setItem("customerName", "Davin");
-        localStorage.setItem("orderId", "LF" + Math.floor(100000 + Math.random() * 900000));
+        localStorage.setItem("orderId", order.id);
         localStorage.setItem("paymentTime", new Date().toLocaleString("en-IN"));
 
         window.location.href = "success.html";
@@ -142,7 +153,6 @@ var options = {
 
 var rzp = new Razorpay(options);
 rzp.open();
-};
 
 // ==================== CLEAR CART ====================
 
