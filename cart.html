@@ -55,6 +55,7 @@ button{
     <br><br>
 
 <button onclick="clearCart()" style="background:red;color:white;">
+
 Clear Cart
 </button>
 </div>
@@ -96,37 +97,52 @@ function changeQty(name, change) {
     let item = cart.find(i => i.name === name);
 
     if (!item) return;
-
- item.quantity += change;
-
-if (item.quantity <= 0) {
-    cart = cart.filter(i => i.name !== name);
-}
-
-localStorage.setItem("cart", JSON.stringify(cart));
-location.reload();
-}
-
 // ==================== PAYMENT ====================
 
-e.preventDefault();
+document.getElementById("payBtn").onclick = async function (e) {
+    e.preventDefault();
 
-// ===== TEST MODE =====
-localStorage.setItem("totalPrice", totalPrice);
-localStorage.setItem("paymentId", "RZP" + Date.now());
+    localStorage.setItem("totalPrice", totalPrice);
+    localStorage.setItem("paymentId", "RZP" + Date.now());
 
-const res = await fetch("http://localhost:5000/create-order", {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-        amount: totalPrice
-    })
-});
+    const res = await fetch("http://localhost:5000/create-order", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            amount: totalPrice
+        })
+    });
 
-const order = await res.json();
+    const order = await res.json();
 
+    var options = {
+        key: "rzp_test_T8Ef5Ht4FPwfeA",
+        amount: order.amount,
+        currency: order.currency,
+        order_id: order.id,
+        name: "LearnFast",
+        description: "eBook Purchase",
+
+        prefill: {
+            name: "Davin"
+        },
+
+        handler: function (response) {
+            localStorage.setItem("totalPrice", totalPrice);
+            localStorage.setItem("paymentId", response.razorpay_payment_id);
+            localStorage.setItem("customerName", "Davin");
+            localStorage.setItem("orderId", order.id);
+            localStorage.setItem("paymentTime", new Date().toLocaleString("en-IN"));
+
+            window.location.href = "success.html";
+        }
+    };
+
+    var rzp = new Razorpay(options);
+    rzp.open();
+};
 var options = {
     key: "rzp_test_T8Ef5Ht4FPwfeA",
     amount: order.amount,
